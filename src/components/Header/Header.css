@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    align-items: center;
+    padding:32px 0 28px;
+    background-color: lightgrey;
+
+
+}
+.header__date-and-location{
+   
+}
+.header__logo{
+    margin-right: 24px;
+}
+.header__add-clothes-btn{
+    margin-left: auto;
+}
+
+.header__user-container{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 20px;
+}
+.header__username{
+    margin: 0;
+}
