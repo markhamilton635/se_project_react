@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Regular.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Bold.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
   }
@@ -15,39 +15,39 @@
 
 @font-face {
   font-family: 'CabinetGrotesk';
-  src: url('./fonts/CabinetGrotesk-Thin.otf') format('woff');
+  src: url('./fonts/CabinetGrotesk-Thin.woff') format('woff');
   font-weight: 100;  /* Thin typically corresponds to this weight */
   font-style: normal;
 }
 
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Extralight.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Extralight.woff') format('woff');
     font-weight: 200;  /* Extra light typically corresponds to this weight */
     font-style: normal;
   }
 
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Light.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Light.woff') format('woff');
     font-weight: 300;  /* Light typically corresponds to this weight */
     font-style: normal;
   }
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Medium.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Medium.woff') format('woff');
     font-weight: 500;  /* Medium typically corresponds to this weight */
     font-style: normal;
   }
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Extrabold.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Extrabold.woff') format('woff');
     font-weight: 800;  /* Extra bold typically corresponds to this weight */
     font-style: normal;
   }
   @font-face {
     font-family: 'CabinetGrotesk';
-    src: url('./fonts/CabinetGrotesk-Black.otf') format('woff');
+    src: url('./fonts/CabinetGrotesk-Black.woff') format('woff');
     font-weight: 900;  /* Black is typically the heaviest weight */
     font-style: normal;
   }
