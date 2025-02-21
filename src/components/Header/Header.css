@@ -9,9 +9,18 @@
 
 .header__logo{
     margin-right: 24px;
+   
 }
 .header__add-clothes-btn{
     margin-left: auto;
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0%;
+background-color: transparent;
+border: none;
+
 }
 
 .header__user-container{
@@ -22,4 +31,20 @@
 }
 .header__username{
     margin: 0;
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 20px;
+line-height: 24.8px;
+letter-spacing: 0%;
+
+}
+
+.header__date-and-location{
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0%;
+margin: 0;
+
 }

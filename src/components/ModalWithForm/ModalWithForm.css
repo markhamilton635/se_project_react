@@ -17,12 +17,21 @@
 
 .modal__title{
     margin: 0;
+    margin-bottom: 24px; 
+    font-family: Cabinet Grotesk;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+
 }
 
 .modal__close{
     position: absolute;
     top: 20px;
     right: 28px;
+    background: transparent;
+    border: none;
 }
 
 .modal__form{
@@ -41,13 +50,113 @@
     box-sizing: border-box;
     padding: 28px 28px 36px;
 }
-.modal__input{
-    display: block;
+
+.modal__legend{
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0%;
+margin-bottom: 12px ;
+
+
 }
 
+.modal__label{
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0%;
+margin-bottom: 24px ;
+
+}
+
+.modal__input{
+    display: block;
+    border: none;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0%;
+margin-top: 8px;
+
+
+}
+
+.modal__label_type_radio{
+    margin: 0;
+    display: flex;
+    gap: 11px;
+    margin-bottom: 8px;
+    font-family: Cabinet Grotesk;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: color 0.3s ease;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0%;
+color: #00000080;
+transition: opacity 5s ease;
+
+
+}
+
+.modal__label_type_radio:hover{
+color: black;  
+
+}
+
+
+
+
+.modal__label_type_radio:last-child{
+    margin: 0;
+}
+.modal__radio-input{
+    accent-color: black;
+    width: 16px;
+    height: 16px;
+}
+
+
 .modal__radio-buttons{
+
     border: none;
     padding: 0;
     display: flex;
     flex-direction: column;
+   
+}
+
+
+.modal__submit{
+   max-width: 124px;
+   width: 100%;
+   height: 36px;
+   margin-top:32px ;
+   width: 124;
+border-radius: 4px;
+padding: 8px 16px;
+font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0%;
+border: none;
+background-color: black;
+color: white;
+position: absolute;
+bottom: 36px;
+left:28px ;
+
+
+}
+.modal__submit:hover{
+    background: #00000099;
+
 }

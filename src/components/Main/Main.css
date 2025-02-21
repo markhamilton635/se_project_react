@@ -7,3 +7,12 @@
     gap: 21px;
   
 }
+
+.cards__text{
+    font-family: Cabinet Grotesk;
+font-weight: 700;
+font-size: 20px;
+line-height: 24.8px;
+letter-spacing: 0%;
+margin: 40px 0 34px;
+}
