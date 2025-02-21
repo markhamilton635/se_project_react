@@ -1,13 +1,13 @@
 .footer{
     position: absolute;
-    bottom: 24px; /* 24px from the bottom */
+    bottom: 24px; 
     left: 50%;
-    transform: translateX(-50%); /* Center the footer horizontally */
+    transform: translateX(-50%); 
     max-width: 1360px;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Spread items across the full width */
-    align-items: center; /* Vertically center the content */
+    justify-content: space-between; 
+    align-items: center;
     padding: 10px;
     color: black;
 
