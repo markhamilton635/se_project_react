@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('./fonts/CabinetGrotesk-Thin.otf') format('opentype');
+  font-weight: 100;  /* Thin typically corresponds to this weight */
+  font-style: normal;
+}
+
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Extralight.otf') format('opentype');
+    font-weight: 200;  /* Extra light typically corresponds to this weight */
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Light.otf') format('opentype');
+    font-weight: 300;  /* Light typically corresponds to this weight */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Medium.otf') format('opentype');
+    font-weight: 500;  /* Medium typically corresponds to this weight */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Extrabold.otf') format('opentype');
+    font-weight: 800;  /* Extra bold typically corresponds to this weight */
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'CabinetGrotesk';
+    src: url('./fonts/CabinetGrotesk-Black.otf') format('opentype');
+    font-weight: 900;  /* Black is typically the heaviest weight */
+    font-style: normal;
+  }
