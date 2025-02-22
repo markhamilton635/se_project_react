@@ -10,7 +10,7 @@ border-radius: 12px;
 .weather-card__temp{
     position: absolute;
     color: white;
-    font-family: Cabinet Grotesk;
+    font-family: 'CabinetGrotesk';
     font-weight: 700;
     font-size: 36px;
     line-height: 40px;

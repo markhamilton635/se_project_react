@@ -32,7 +32,7 @@ left: 32px;
 
 .modal__caption{
 margin: 0;
-font-family: Cabinet Grotesk;
+font-family:'CabinetGrotesk';
 font-weight: 700;
 font-size: 20px;
 line-height: 24px;
@@ -41,7 +41,7 @@ color: #000000;
 }
 
 .modal__weather{
-font-family: Cabinet Grotesk;
+font-family: 'CabinetGrotesk';
 font-weight: 700;
 font-size: 20px;
 line-height: 24px;
