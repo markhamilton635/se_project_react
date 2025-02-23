@@ -48,7 +48,7 @@ const handleCardClick = (card) => {
                 <Main weatherData={weatherData} handleCardClick={handleCardClick} />
                 <Footer/>
             </div>
-            <ModalWithForm title="New garmet" buttonText="Add garmet" activeModal={activeModal} onClose={closeActiveModal}>
+            <ModalWithForm title="New garmet" buttonText="Add garmet" activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal}>
             <label htmlFor="name" className="modal__label">Name 
                 <input type="text" className="modal__input" id="name" placeholder='Name' />
             </label>
