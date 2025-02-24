@@ -2,7 +2,7 @@ import './ModalWithForm.css'
 import darkClose from "../../assets/darkClose.svg"
 import { useEffect } from 'react';
 
-function ModalWithForm({ children, buttonText, title, activeModal, onClose, isOpen }) {
+function ModalWithForm({ children, buttonText, title, onClose, isOpen }) {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
