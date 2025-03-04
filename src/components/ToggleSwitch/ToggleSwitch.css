@@ -1,0 +1,42 @@
+.toggle-switch {
+  width: 56px;
+  height: 28px;
+  border: 2px solid;
+  border-radius: 20px;
+  overflow:hidden;
+  position: relative;
+  margin-left: auto;
+}
+.toggle-switch__checkbox {
+  opacity: 0;
+}
+.toggle-switch__fahrenheit {
+  position: absolute;
+  top: 5px;
+  left: 8.5px;
+  color: grey;
+}
+.toggle-switch__celsius {
+  position: absolute;
+  color: grey;
+  top: 5px;
+  right: 8.5px;
+}
+.toggle-switch__circle {
+  position: absolute;
+  background-color: black;
+  width: 28px;
+  height: 28px;
+  border-radius: 20px;
+  left: -0.6px;
+  transition: all 0.4s;
+}
+
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle{
+    left: 28.2px;
+     
+}
+.toggle-switch_text-color_white{
+  color: white;
+  transition: .4s;
+}
