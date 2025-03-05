@@ -3,7 +3,7 @@
   height: 28px;
   border: 2px solid;
   border-radius: 20px;
-  overflow:hidden;
+  overflow: hidden;
   position: relative;
   margin-left: auto;
 }
@@ -29,14 +29,13 @@
   height: 28px;
   border-radius: 20px;
   left: -0.6px;
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
-.toggle-switch__checkbox:checked ~ .toggle-switch__circle{
-    left: 28.2px;
-     
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle {
+  left: 28.2px;
 }
-.toggle-switch_text-color_white{
+.toggle-switch_text-color_white {
   color: white;
-  transition: .4s;
+  transition: 0.2s;
 }
