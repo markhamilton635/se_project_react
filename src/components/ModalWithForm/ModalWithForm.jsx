@@ -2,7 +2,7 @@ import './ModalWithForm.css'
 import darkClose from "../../assets/darkClose.svg"
 import { useEffect } from 'react';
 
-function ModalWithForm({ children, buttonText, title, onClose, isOpen }) {
+function ModalWithForm({ children, buttonText, title, onClose, isOpen, onItemSubmit }) {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -31,7 +31,7 @@ function ModalWithForm({ children, buttonText, title, onClose, isOpen }) {
                 <button onClick={onClose} type="button" className="modal__close">
                     <img src={darkClose} alt="close icon" />
                 </button>
-                <form className="modal__form">
+                <form onSubmit={onItemSubmit} className="modal__form">
                     {children}
                     <button type="submit" className="modal__submit">
                         {buttonText}

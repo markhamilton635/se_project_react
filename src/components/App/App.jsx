@@ -45,6 +45,14 @@ function App() {
         setActiveModal("");
     }
 
+    const handleAddItemModalSubmit = ({name, image, weather}) => {
+        //close modal
+        //update clothingItems array
+        setClothingItems([{name, link: image, weather}, ...clothingItems]);
+        closeActiveModal();
+        
+    }
+
     useEffect(() => {
         getWeather(coordinates, APIkey)
             .then((data) => {
@@ -62,7 +70,7 @@ function App() {
                     <Main weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />
                     <Footer />
                 </div>
-                <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} />
+                <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                 <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
             </div>
         </CurrentTemperatureUnitContext.Provider>
