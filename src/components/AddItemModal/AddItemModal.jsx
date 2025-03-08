@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const [name, setName] = useState("");
-    const [image, setImage] = useState("");
+    const [imageUrl, setImage] = useState("");
     const [weather, setWeather] = useState("")
 
 
@@ -14,7 +14,7 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const handleItemSubmit = (e) => {
         e.preventDefault();
        //udpating clothingItems array and closing modal in this funciton in app
-        onAddItemModalSubmit({name, image, weather});
+        onAddItemModalSubmit({name, imageUrl, weather});
         //empty inputs 
         setName("");
         setImage("");
@@ -28,7 +28,7 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
                 <input type="text" className="modal__input" id="name" placeholder='Name' onChange={handleNameChange} value={name} />
             </label>
             <label htmlFor="imageUrl" className="modal__label">Image
-                <input type="url" className="modal__input" id="imageUrl" placeholder='Image URL' onChange={handleImageChange} value={image} />
+                <input type="url" className="modal__input" id="imageUrl" placeholder='Image URL' onChange={handleImageChange} value={imageUrl} />
             </label>
             <fieldset className="modal__radio-buttons">
                 <legend className="modal__legend">Select the weather type:</legend>
