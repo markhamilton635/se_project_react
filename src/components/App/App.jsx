@@ -8,6 +8,8 @@ import ItemModal from '../ItemModal/ItemModal';
 import { getWeather, filterWeatherData } from '../../utils/weatherApi';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 import AddItemModal from '../AddItemModal/AddItemModal';
+import { Routes, Route } from 'react-router-dom';
+import Profile from '../Profile/Profile';
 
 
 
@@ -45,12 +47,11 @@ function App() {
         setActiveModal("");
     }
 
-    const handleAddItemModalSubmit = ({name, image, weather}) => {
-        //close modal
-        //update clothingItems array
-        setClothingItems([{name, link: image, weather}, ...clothingItems]);
+    const handleAddItemModalSubmit = ({ name, image, weather }) => {
+
+        setClothingItems((prevItems) => [{ name, link: image, weather }, ...prevItems]);
         closeActiveModal();
-        
+
     }
 
     useEffect(() => {
@@ -67,9 +68,18 @@ function App() {
             <div className="page">
                 <div className="page__content">
                     <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-                    <Main weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />
-                    <Footer />
+
+                    <Routes>
+                        <Route path='/' element={<Main weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+                        <Route path='/profile' element={<Profile handleCardClick={handleCardClick} clothingItems={clothingItems}/>}></Route>
+                    </Routes>
+
+                    
+
+
+                    
                 </div>
+                <Footer />
                 <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                 <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
             </div>

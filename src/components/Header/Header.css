@@ -49,3 +49,7 @@ letter-spacing: 0%;
 margin: 0;
 
 }
+.header__profile-link{
+    text-decoration: none;
+    color: black;
+}

@@ -1,9 +1,15 @@
 .page {
   background-color: white;
   font-family: "CabinetGrotesk", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
