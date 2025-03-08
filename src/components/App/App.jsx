@@ -57,6 +57,13 @@ function App() {
         .catch(console.error);
    }
 
+   const handleDeleteCard = (id) => {
+    deleteItem(id).then(()=>{
+        setClothingItems((prevItems)=>prevItems.filter(item => item._id !==id));
+        closeActiveModal();
+    }).catch(console.error);
+   }
+
     useEffect(() => {
         getWeather(coordinates, APIkey)
             .then((data) => {
@@ -80,8 +87,8 @@ function App() {
                     <Header handleAddClick={handleAddClick} weatherData={weatherData} />
 
                     <Routes>
-                        <Route path='/' element={<Main weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
-                        <Route path='/profile' element={<Profile handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+                        <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+                        <Route path='/profile' element={<Profile handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
                     </Routes>
 
 
@@ -91,7 +98,7 @@ function App() {
                 </div>
                 <Footer />
                 <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
-                <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
+                <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
             </div>
         </CurrentTemperatureUnitContext.Provider>
     )

@@ -16,9 +16,9 @@ function addItem(name, imageUrl, weather) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
-      name: name,
-      imageUrl: imageUrl,
-      weather: weather,
+      name,
+      imageUrl,
+      weather,
     }),
     headers: {
       "Content-type": "application/json",
@@ -26,18 +26,13 @@ function addItem(name, imageUrl, weather) {
   }).then(handleResponse);
 }
 
-function deleteItem() {
-    fetch(`${baseUrl}/items/_id`, {
+function deleteItem(id) {
+     return fetch(`${baseUrl}/items/${id}`, {
       method: "DELETE",
-      body: JSON.stringify({
-        name: "",
-        imageUrl: "",
-        weather: "",
-      }),
       headers: {
         "Content-type": "application/json",
       },
-    });
+    }).then(handleResponse);
   }
 
 export { getItems,addItem,deleteItem };
