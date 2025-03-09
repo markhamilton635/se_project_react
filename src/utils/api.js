@@ -27,12 +27,12 @@ function addItem(name, imageUrl, weather) {
 }
 
 function deleteItem(id) {
-     return fetch(`${baseUrl}/items/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-    }).then(handleResponse);
-  }
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).then(handleResponse);
+}
 
-export { getItems,addItem,deleteItem };
+export { getItems, addItem, deleteItem };

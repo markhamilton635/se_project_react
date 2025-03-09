@@ -50,19 +50,19 @@ function App() {
     }
 
     const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-        addItem(name,imageUrl,weather).then((newItem) => {
+        addItem(name, imageUrl, weather).then((newItem) => {
             setClothingItems((prevItems) => [...prevItems, newItem]);
             closeActiveModal();
         })
-        .catch(console.error);
-   }
+            .catch(console.error);
+    }
 
-   const handleDeleteCard = (id) => {
-    deleteItem(id).then(()=>{
-        setClothingItems((prevItems)=>prevItems.filter(item => item._id !==id));
-        closeActiveModal();
-    }).catch(console.error);
-   }
+    const handleDeleteCard = (id) => {
+        deleteItem(id).then(() => {
+            setClothingItems((prevItems) => prevItems.filter(item => item._id !== id));
+            closeActiveModal();
+        }).catch(console.error);
+    }
 
     useEffect(() => {
         getWeather(coordinates, APIkey)

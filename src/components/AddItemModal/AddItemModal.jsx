@@ -13,8 +13,8 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const handleWeatherChange = (e) => { setWeather(e.target.value) }
     const handleItemSubmit = (e) => {
         e.preventDefault();
-       //udpating clothingItems array and closing modal in this funciton in app
-        onAddItemModalSubmit({name, imageUrl, weather});
+        //udpating clothingItems array and closing modal in this funciton in app
+        onAddItemModalSubmit({ name, imageUrl, weather });
         //empty inputs 
         setName("");
         setImage("");
@@ -33,13 +33,13 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
             <fieldset className="modal__radio-buttons">
                 <legend className="modal__legend">Select the weather type:</legend>
                 <label htmlFor="hot" className="modal__label modal__label_type_radio">
-                    <input id="hot" name="1" type="radio" className="modal__radio-input" value="hot" onChange={handleWeatherChange} checked={weather==="hot"}/> Hot
+                    <input id="hot" name="1" type="radio" className="modal__radio-input" value="hot" onChange={handleWeatherChange} checked={weather === "hot"} /> Hot
                 </label>
                 <label htmlFor="warm" className="modal__label modal__label_type_radio">
-                    <input id="warm" name="1" type="radio" className="modal__radio-input" value="warm" onChange={handleWeatherChange} checked={weather==="warm"}/> Warm
+                    <input id="warm" name="1" type="radio" className="modal__radio-input" value="warm" onChange={handleWeatherChange} checked={weather === "warm"} /> Warm
                 </label>
                 <label htmlFor="cold" className="modal__label modal__label_type_radio">
-                    <input id="cold" name="1" type="radio" className="modal__radio-input" value="cold" onChange={handleWeatherChange}checked={weather==="cold"}/> Cold
+                    <input id="cold" name="1" type="radio" className="modal__radio-input" value="cold" onChange={handleWeatherChange} checked={weather === "cold"} /> Cold
                 </label>
             </fieldset>
         </ModalWithForm>

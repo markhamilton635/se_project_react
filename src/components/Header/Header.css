@@ -1,55 +1,48 @@
-.header{
-    display: flex;
-    align-items: center;
-    padding:32px 0 28px;
-  
-
-
+.header {
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
 }
 
-.header__logo{
-    margin-right: 24px;
-   
+.header__logo {
+  margin-right: 24px;
 }
-.header__add-clothes-btn{
-    margin-left: 20px;
-    font-family: 'CabinetGrotesk';
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-letter-spacing: 0%;
-background-color: transparent;
-border: none;
-padding: 0;
-
+.header__add-clothes-btn {
+  margin-left: 20px;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
-.header__user-container{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-left: 20px;
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 20px;
 }
-.header__username{
-    margin: 0;
-    font-family: 'CabinetGrotesk';
-font-weight: 700;
-font-size: 20px;
-line-height: 24.8px;
-letter-spacing: 0%;
-
+.header__username {
+  margin: 0;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.8px;
+  letter-spacing: 0%;
 }
 
-.header__date-and-location{
-    font-family: 'CabinetGrotesk';
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-letter-spacing: 0%;
-margin: 0;
-
+.header__date-and-location {
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  margin: 0;
 }
-.header__profile-link{
-    text-decoration: none;
-    color: black;
+.header__profile-link {
+  text-decoration: none;
+  color: black;
 }
