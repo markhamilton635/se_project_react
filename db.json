@@ -103,34 +103,10 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "",
-      "imageUrl": "",
-      "weather": "",
-      "_id": 17
-    },
-    {
-      "name": "",
-      "imageUrl": "",
-      "weather": "",
-      "_id": 18
-    },
-    {
       "name": "Detroit Jacket",
       "imageUrl": "https://i.pinimg.com/236x/0b/6c/e2/0b6ce2465bbc71ea1bc43c8e5442ea74.jpg",
       "weather": "cold",
       "_id": 19
-    },
-    {
-      "name": "Black sneakers",
-      "imageUrl": "https://i.pinimg.com/236x/45/6a/d3/456ad3e8658dab63e73b7c591baa5156.jpg",
-      "weather": "warm",
-      "_id": 20
-    },
-    {
-      "name": "Black sneakers",
-      "imageUrl": "https://i.pinimg.com/236x/45/6a/d3/456ad3e8658dab63e73b7c591baa5156.jpg",
-      "weather": "cold",
-      "_id": 21
     },
     {
       "name": "Cozy bright outfit",
