@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import { coordinates, APIkey, defaultClothingItems } from '../../utils/constants';
+import { coordinates, APIkey } from '../../utils/constants';
 import Header from '../Header/Header'
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
@@ -88,7 +88,7 @@ function App() {
 
                     <Routes>
                         <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
-                        <Route path='/profile' element={<Profile handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+                        <Route path='/profile' element={<Profile handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
                     </Routes>
 
 

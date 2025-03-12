@@ -35,4 +35,4 @@ function deleteItem(id) {
   }).then(handleResponse);
 }
 
-export { getItems, addItem, deleteItem };
+export { getItems, addItem, deleteItem, handleResponse };

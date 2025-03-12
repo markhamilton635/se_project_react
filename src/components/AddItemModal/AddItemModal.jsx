@@ -1,11 +1,18 @@
 import "./AddItemModal.css"
 import ModalWithForm from "../ModalWithForm/ModalWithForm"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const [name, setName] = useState("");
     const [imageUrl, setImage] = useState("");
     const [weather, setWeather] = useState("")
+    useEffect(()=>{
+        setName("");
+        setImage("");
+        setWeather("");
+    }, [isOpen]);
+
+
 
 
     const handleNameChange = (e) => { setName(e.target.value) }
@@ -16,14 +23,14 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
         //udpating clothingItems array and closing modal in this funciton in app
         onAddItemModalSubmit({ name, imageUrl, weather });
         //empty inputs 
-        setName("");
-        setImage("");
-        setWeather("");
+       
+      
+
     }
 
 
     return (
-        <ModalWithForm title="New garmet" buttonText="Add garmet" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onItemSubmit={handleItemSubmit}>
+        <ModalWithForm title="New garmet" buttonText="Add garmet" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleItemSubmit}>
             <label htmlFor="name" className="modal__label">Name
                 <input type="text" className="modal__input" id="name" placeholder='Name' onChange={handleNameChange} value={name} />
             </label>
