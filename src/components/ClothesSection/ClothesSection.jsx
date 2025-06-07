@@ -2,7 +2,8 @@ import './ClothesSection.css'
 import ItemCard from '../Main/ItemCard/ItemCard'
 
 
-function ClothesSection({ handleAddClick ,handleCardClick, clothingItems }) {
+function ClothesSection({ handleAddClick, handleCardClick, clothingItems }) {
+
 
     return (
 
@@ -27,3 +28,4 @@ function ClothesSection({ handleAddClick ,handleCardClick, clothingItems }) {
 }
 
 export default ClothesSection
+

@@ -3,11 +3,17 @@ import avatar from "../../assets/avatar.svg"
 function SideBar() {
 
     return (
+        <>
+            <div className="sidebar">
+                <img className="sidebar__avatar" src={avatar} alt="Profile Avatar" />
+                <p className="sidebar__username">Terrence Tegegne</p>
+            </div>
+            <div className='sidebar__btns'>
+                <button className='sidebar__edit-profile-btn'>Change profile data</button>
+                <button className='sidebar__logout-btn'>Log out</button>
+            </div>
 
-        <div className="sidebar">
-            <img className="sidebar__avatar" src={avatar} alt="Profile Avatar" />
-            <p className="sidebar__username">Terrence Tegegne</p>
-        </div>
+        </>
 
     )
 

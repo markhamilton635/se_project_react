@@ -1,8 +1,11 @@
 import './Profile.css'
 import SideBar from '../SideBar/SideBar'
 import ClothesSection from '../ClothesSection/ClothesSection'
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Profile({ handleAddClick ,handleCardClick, clothingItems }) {
+     const currentUser = useContext(CurrentUserContext)
     return (
 
         <div className='profile'>
@@ -21,3 +24,4 @@ function Profile({ handleAddClick ,handleCardClick, clothingItems }) {
 
 
 export default Profile
+// .filter(item => item.owner === currentUser._id) add this to clothingitems passed to filter profile only to items owned by current user

@@ -155,9 +155,9 @@ function App() {
                         <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
 
                         <Route path='/profile' element={
-                            <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            // <ProtectedRoute isLoggedIn={isLoggedIn}>
                                 <Profile handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
-                            </ProtectedRoute>
+                            // </ProtectedRoute>
                         }></Route>
 
                     </Routes>
