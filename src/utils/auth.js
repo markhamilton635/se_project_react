@@ -1,4 +1,4 @@
-import baseUrl from "./api.js";
+import {baseUrl} from "./api.js";
 
 export const signup = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {

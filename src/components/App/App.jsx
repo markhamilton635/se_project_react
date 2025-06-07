@@ -16,6 +16,7 @@ import RegisterModal from '../RegisterModal/RegisterModal';
 import ProtectedRoute from "../ProtectedRoute";
 import { signup, signin } from '../../utils/auth';
 import { setToken, getToken } from '../../utils/token';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
 
@@ -33,6 +34,7 @@ function App() {
     const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
     const [clothingItems, setClothingItems] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [currentUser, setCurrentUser] = useState({name: "",avatar: ""})
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -43,9 +45,9 @@ function App() {
             return;
         }
         getUserInfo(jwt)
-            .then(({ username, email }) => {
+            .then(({ name, avatar }) => {
                 setIsLoggedIn(true);
-                // setUserData({ username, email });
+                setCurrentUser({ name, avatar });
 
             })
             .catch(console.error);
@@ -144,9 +146,10 @@ function App() {
 
     return (
         <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
+            <CurrentUserContext.Provider value = {currentUser}>
             <div className="page">
                 <div className="page__content">
-                    <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+                    <Header handleAddClick={handleAddClick} weatherData={weatherData} currentUser={currentUser} />
 
                     <Routes>
                         <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
@@ -170,6 +173,7 @@ function App() {
                 <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} />
                 <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} />
             </div>
+            </CurrentUserContext.Provider>
         </CurrentTemperatureUnitContext.Provider>
     )
 }

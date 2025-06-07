@@ -51,4 +51,4 @@ export const getUserInfo = (token) => {
 };
 
 
-export { getItems, addItem, deleteItem, handleResponse };
+export { getItems, addItem, deleteItem, handleResponse, baseUrl };
