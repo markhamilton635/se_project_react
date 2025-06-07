@@ -32,12 +32,12 @@ function deleteItem(id, token) {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
   }).then(handleResponse);
 }
 
-export const getUserInfo = (token) => {
+function getUserInfo(token) {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
@@ -48,7 +48,25 @@ export const getUserInfo = (token) => {
   }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
-};
+}
+
+function editProfileInfo({name,avatar,token}) {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+}
 
 
-export { getItems, addItem, deleteItem, handleResponse, baseUrl };
+
+export { getItems, addItem, deleteItem, handleResponse, baseUrl, getUserInfo, editProfileInfo };
