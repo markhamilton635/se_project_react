@@ -8,7 +8,7 @@ import ItemModal from '../ItemModal/ItemModal';
 import { getWeather, filterWeatherData } from '../../utils/weatherApi';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 import AddItemModal from '../AddItemModal/AddItemModal';
-import { Routes, Route, useNavigate, useLocation} from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Profile from '../Profile/Profile';
 import { getItems, addItem, deleteItem, getUserInfo } from '../../utils/api';
 import LoginModal from '../LoginModal/LoginModal';
@@ -37,19 +37,19 @@ function App() {
     const navigate = useNavigate();
     const location = useLocation();
 
-      useEffect(() => {
-    const jwt = getToken();
-    if (!jwt) {
-      return;
-    }
-    getUserInfo(jwt)
-      .then(({ username, email }) => {
-        setIsLoggedIn(true);
-        // setUserData({ username, email });
+    useEffect(() => {
+        const jwt = getToken();
+        if (!jwt) {
+            return;
+        }
+        getUserInfo(jwt)
+            .then(({ username, email }) => {
+                setIsLoggedIn(true);
+                // setUserData({ username, email });
 
-      })
-      .catch(console.error);
-  }, []);
+            })
+            .catch(console.error);
+    }, []);
 
     const handleRegistration = ({
         email,
@@ -67,22 +67,22 @@ function App() {
 
     };
 
-  const handleLogin = ({ email, password }) => {
-    if (!email || !password) {
-      return;
-    }
-    signin(email, password)
-      .then((data) => {
-        if (data.jwt) {
-          setToken(data.jwt)
-        //   setUserData(data.user);
-          setIsLoggedIn(true);
-          const redirectPath = location.state?.from?.pathname || "/profile";
-          navigate(redirectPath);
+    const handleLogin = ({ email, password }) => {
+        if (!email || !password) {
+            return;
         }
-      })
-      .catch(console.error);
-  }
+        signin(email, password)
+            .then((data) => {
+                if (data.jwt) {
+                    setToken(data.jwt)
+                    //   setUserData(data.user);
+                    setIsLoggedIn(true);
+                    const redirectPath = location.state?.from?.pathname || "/profile";
+                    navigate(redirectPath);
+                }
+            })
+            .catch(console.error);
+    }
 
 
     const handleToggleSwitchChange = () => {
@@ -103,16 +103,24 @@ function App() {
         setActiveModal("");
     }
 
-    const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-        addItem(name, imageUrl, weather).then((newItem) => {
+    const handleAddItemModalSubmit = ({ name, imageUrl, weather, }) => {
+        const jwt = getToken();
+        if (!jwt) {
+            return;
+        }
+        addItem(name, imageUrl, weather, jwt).then((newItem) => {
             setClothingItems((prevItems) => [...prevItems, newItem]);
             closeActiveModal();
         })
             .catch(console.error);
     }
 
-    const handleDeleteCard = (id) => {
-        deleteItem(id).then(() => {
+    const handleDeleteCard = (id,) => {
+        const jwt = getToken();
+        if (!jwt) {
+            return;
+        }
+        deleteItem(id, jwt).then(() => {
             setClothingItems((prevItems) => prevItems.filter(item => item._id !== id));
             closeActiveModal();
         }).catch(console.error);

@@ -12,7 +12,7 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(handleResponse);
 }
 
-function addItem(name, imageUrl, weather,) {
+function addItem(name, imageUrl, weather, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
@@ -22,15 +22,17 @@ function addItem(name, imageUrl, weather,) {
     }),
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   }).then(handleResponse);
 }
 
-function deleteItem(id) {
+function deleteItem(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${token}`
     },
   }).then(handleResponse);
 }
