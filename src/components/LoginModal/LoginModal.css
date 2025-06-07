@@ -1,0 +1,16 @@
+.login_modal-button {
+  position: absolute;
+  background: none;
+  bottom: 44px;
+  left: 158px;
+  border: none;
+  opacity: 50%;
+}
+.login_modal-button:hover {
+  opacity: 100%;
+}
+
+.login_modal-content{
+    max-width:496px ;
+    max-height: 304px;
+}

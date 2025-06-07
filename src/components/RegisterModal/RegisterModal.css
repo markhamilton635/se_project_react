@@ -1,0 +1,12 @@
+.register_modal-button {
+  position: absolute;
+  background: none;
+  bottom: 44px;
+  left: 158px;
+  border: none;
+  opacity: 50%;
+}
+.register_modal-button:hover {
+  opacity: 100%;
+}
+

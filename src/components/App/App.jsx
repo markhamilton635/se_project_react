@@ -11,6 +11,8 @@ import AddItemModal from '../AddItemModal/AddItemModal';
 import { Routes, Route } from 'react-router-dom';
 import Profile from '../Profile/Profile';
 import { getItems, addItem, deleteItem } from '../../utils/api';
+import LoginModal from '../LoginModal/LoginModal';
+import RegisterModal from '../RegisterModal/RegisterModal';
 
 
 
@@ -99,6 +101,8 @@ function App() {
                 <Footer />
                 <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                 <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
+                <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"}/>
+                <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"}/>
             </div>
         </CurrentTemperatureUnitContext.Provider>
     )
