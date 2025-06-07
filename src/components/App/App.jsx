@@ -109,6 +109,18 @@ function App() {
         setSelectedCard(card);
 
     }
+    const handleLoginClick =() =>{
+        setActiveModal("log-in")
+    }
+     const handleSignUpCLick =() =>{
+        setActiveModal("register")
+    }
+     const handleLogOutClick =() =>{
+        setActiveModal("log-out")
+    }
+       const handleEditProfileClick =() =>{
+        setActiveModal("edit-profile")
+    }
 
     const handleAddClick = () => {
         setActiveModal("add-garment")
@@ -168,7 +180,7 @@ function App() {
 
                             <Route path='/profile' element={
                                 // <ProtectedRoute isLoggedIn={isLoggedIn}>
-                                <Profile handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
+                                <Profile onClose={closeActiveModal} handleEditProfileClick={handleEditProfileClick} handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
                                 // </ProtectedRoute>
                             }></Route>
 
@@ -184,7 +196,7 @@ function App() {
                     <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
                     <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} />
                     <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} />
-                    <EditProfileModal activeModal={activeModal} isOpen={activeModal === ""} handleEditProfile={handleEditProfile}/>
+                    <EditProfileModal activeModal={activeModal} isOpen={activeModal === "edit-profile"} handleEditProfile={handleEditProfile} onClose={closeActiveModal}/>
                 </div>
             </CurrentUserContext.Provider>
         </CurrentTemperatureUnitContext.Provider>

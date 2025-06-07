@@ -2,7 +2,7 @@ import "./EditProfileModal.css"
 import ModalWithForm from "../ModalWithForm/ModalWithForm"
 import { useEffect, useState } from "react";
 
-function EditProfileModal({ activeModal, onClose, isOpen,handleEditProfile }) {
+function EditProfileModal({ activeModal, onClose, isOpen,handleEditProfile, handleEditProfileClick }) {
     const [data, setData] = useState({
     name: "",
     avatar: "",
@@ -17,6 +17,7 @@ function EditProfileModal({ activeModal, onClose, isOpen,handleEditProfile }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('submitting')
     handleEditProfile(data);
   }
 

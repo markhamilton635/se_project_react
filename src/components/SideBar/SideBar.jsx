@@ -1,6 +1,6 @@
 import './SideBar.css'
 import avatar from "../../assets/avatar.svg"
-function SideBar() {
+function SideBar({handleEditProfileClick, onClose}) {
 
     return (
         <>
@@ -9,7 +9,7 @@ function SideBar() {
                 <p className="sidebar__username">Terrence Tegegne</p>
             </div>
             <div className='sidebar__btns'>
-                <button className='sidebar__edit-profile-btn'>Change profile data</button>
+                <button onClose={onClose} onClick={handleEditProfileClick} className='sidebar__edit-profile-btn'>Change profile data</button>
                 <button className='sidebar__logout-btn'>Log out</button>
             </div>
 
