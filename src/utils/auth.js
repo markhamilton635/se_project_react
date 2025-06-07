@@ -12,7 +12,7 @@ export const signup = (name, avatar, email, password) => {
   });
 };
 
-export const authorize = (email, password) => {
+export const signin = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
@@ -23,3 +23,4 @@ export const authorize = (email, password) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };
+

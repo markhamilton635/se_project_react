@@ -8,11 +8,13 @@ import ItemModal from '../ItemModal/ItemModal';
 import { getWeather, filterWeatherData } from '../../utils/weatherApi';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 import AddItemModal from '../AddItemModal/AddItemModal';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, navigate } from 'react-router-dom';
 import Profile from '../Profile/Profile';
 import { getItems, addItem, deleteItem } from '../../utils/api';
 import LoginModal from '../LoginModal/LoginModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
+import ProtectedRoute from "../ProtectedRoute";
+import { signup, signin } from '../../utils/auth';
 
 
 
@@ -29,8 +31,23 @@ function App() {
     const [selectedCard, setSelectedCard] = useState({});
     const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
     const [clothingItems, setClothingItems] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const handleRegistration = ({
+        email,
+        password,
+        name,
+        avatar,
+    }) => {
 
+        signup(email, password, name, avatar)
+            .then(() => {
+                closeActiveModal();
+                navigate("/profile");
+            })
+            .catch(console.error);
+
+    };
 
 
     const handleToggleSwitchChange = () => {
@@ -90,7 +107,13 @@ function App() {
 
                     <Routes>
                         <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
-                        <Route path='/profile' element={<Profile handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+
+                        <Route path='/profile' element={
+                            <ProtectedRoute isLoggedIn={isLoggedIn}>
+                                <Profile handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
+                            </ProtectedRoute>
+                        }></Route>
+
                     </Routes>
 
 
@@ -101,8 +124,8 @@ function App() {
                 <Footer />
                 <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                 <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
-                <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"}/>
-                <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"}/>
+                <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} />
+                <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} />
             </div>
         </CurrentTemperatureUnitContext.Provider>
     )
