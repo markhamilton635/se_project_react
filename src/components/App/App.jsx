@@ -8,13 +8,14 @@ import ItemModal from '../ItemModal/ItemModal';
 import { getWeather, filterWeatherData } from '../../utils/weatherApi';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 import AddItemModal from '../AddItemModal/AddItemModal';
-import { Routes, Route, navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation} from 'react-router-dom';
 import Profile from '../Profile/Profile';
-import { getItems, addItem, deleteItem } from '../../utils/api';
+import { getItems, addItem, deleteItem, getUserInfo } from '../../utils/api';
 import LoginModal from '../LoginModal/LoginModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import ProtectedRoute from "../ProtectedRoute";
 import { signup, signin } from '../../utils/auth';
+import { setToken, getToken } from '../../utils/token';
 
 
 
@@ -33,6 +34,23 @@ function App() {
     const [clothingItems, setClothingItems] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+      useEffect(() => {
+    const jwt = getToken();
+    if (!jwt) {
+      return;
+    }
+    getUserInfo(jwt)
+      .then(({ username, email }) => {
+        setIsLoggedIn(true);
+        // setUserData({ username, email });
+
+      })
+      .catch(console.error);
+  }, []);
+
     const handleRegistration = ({
         email,
         password,
@@ -48,6 +66,23 @@ function App() {
             .catch(console.error);
 
     };
+
+  const handleLogin = ({ email, password }) => {
+    if (!email || !password) {
+      return;
+    }
+    signin(email, password)
+      .then((data) => {
+        if (data.jwt) {
+          setToken(data.jwt)
+        //   setUserData(data.user);
+          setIsLoggedIn(true);
+          const redirectPath = location.state?.from?.pathname || "/profile";
+          navigate(redirectPath);
+        }
+      })
+      .catch(console.error);
+  }
 
 
     const handleToggleSwitchChange = () => {
@@ -124,7 +159,7 @@ function App() {
                 <Footer />
                 <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                 <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
-                <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} />
+                <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} />
                 <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} />
             </div>
         </CurrentTemperatureUnitContext.Provider>

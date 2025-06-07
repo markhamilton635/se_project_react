@@ -12,7 +12,7 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(handleResponse);
 }
 
-function addItem(name, imageUrl, weather) {
+function addItem(name, imageUrl, weather,) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
@@ -34,5 +34,19 @@ function deleteItem(id) {
     },
   }).then(handleResponse);
 }
+
+export const getUserInfo = (token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+};
+
 
 export { getItems, addItem, deleteItem, handleResponse };
