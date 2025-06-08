@@ -62,3 +62,7 @@
   border: none;
   background: none;
 }
+
+.modal__delete-button_hidden {
+  display: none;
+}
