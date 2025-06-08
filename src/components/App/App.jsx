@@ -57,11 +57,14 @@ function App() {
 
 
     const handleEditProfile = ({ name, avatar }) => {
-        const jwt = getToken();
-        if (!jwt) {
+        const token = getToken();
+        console.log(token)
+        if (!token) {
             return;
         }
-        editProfileInfo({ name, avatar, jwt }).then(() => {
+        console.log({name,avatar, token})
+        editProfileInfo({ name, avatar, token }).then(() => {
+            console.log({name,avatar})
             setCurrentUser({ name, avatar });
         }).catch(console.error);
     }
@@ -72,7 +75,7 @@ function App() {
         name,
         avatar,
     }) => {
-
+ 
         signup(name, avatar, email, password)
             .then(() => {
                 closeActiveModal();

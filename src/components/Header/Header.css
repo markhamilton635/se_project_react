@@ -61,7 +61,7 @@
   text-transform: uppercase;
 }
 .header__log-in-btn {
-   background: none;
+  background: none;
   border: none;
   font-family: "CabinetGrotesk";
   font-weight: 700;
@@ -87,4 +87,12 @@
   top: 8px;
   left: 1221px;
   margin-left: 20px;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  left: 1320px;
+  border-width: 1px;
+  border-radius: 50%;
 }

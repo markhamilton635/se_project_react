@@ -14,9 +14,9 @@ function EditProfileModal({ activeModal, onClose, isOpen, handleEditProfile, }) 
   });
 
   useEffect(() => {
-  
+
     setData({
-      name: currentUser.name ,
+      name: currentUser.name,
       avatar: currentUser.avatar
     })
 
@@ -34,8 +34,9 @@ function EditProfileModal({ activeModal, onClose, isOpen, handleEditProfile, }) 
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitting')
+    console.log(data)
     handleEditProfile(data);
+    onClose();
   }
 
   return (

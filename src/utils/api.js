@@ -50,7 +50,7 @@ function getUserInfo(token) {
   });
 }
 
-function editProfileInfo({name,avatar,token}) {
+function editProfileInfo({name,avatar, token}) {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     body: JSON.stringify({
