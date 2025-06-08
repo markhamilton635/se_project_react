@@ -73,29 +73,30 @@ function App() {
         avatar,
     }) => {
 
-        signup(email, password, name, avatar)
+        signup(name, avatar, email, password)
             .then(() => {
                 closeActiveModal();
 
             }).then(() => {
                 handleLogin({ email, password })
-                navigate("/profile");
+                // navigate("/profile");
             }
-            )
+            ).then(() => { navigate("/profile") })
             .catch(console.error);
 
     };
 
     const handleLogin = ({ email, password }) => {
         if (!email || !password) {
-            return;
+
+            // return //Promise.reject("Missing credentials");
         }
-        signin(email, password)
+        return signin({ email, password })
             .then((data) => {
-                if (data.jwt) {
-                    setToken(data.jwt)
+                if (data.token) {
+                    setToken(data.token)
                     setIsLoggedIn(true);
-                    getUserInfo(data.jwt).then(({ name, avatar }) => {
+                    getUserInfo(data.token).then(({ name, avatar }) => {
                         setCurrentUser({ name, avatar })
                     })
                     const redirectPath = location.state?.from?.pathname || "/profile";
@@ -109,7 +110,7 @@ function App() {
     const handleToggleSwitchChange = () => {
         setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
     }
- 
+
 
     const handleCardClick = (card) => {
         setActiveModal("preview");
@@ -117,11 +118,11 @@ function App() {
 
     }
     const handleLoginClick = () => {
-       
+
         setActiveModal("log-in")
     }
     const handleSignUpClick = () => {
-         console.log("click")
+
         setActiveModal("register")
     }
     const handleLogOutClick = () => {
@@ -182,14 +183,14 @@ function App() {
             <CurrentUserContext.Provider value={currentUser}>
                 <div className="page">
                     <div className="page__content">
-                        <Header handleAddClick={handleAddClick} weatherData={weatherData} currentUser={currentUser} isLoggedIn={isLoggedIn} handleSignUpClick={handleSignUpClick} handleLoginClick={handleLoginClick}/>
+                        <Header handleAddClick={handleAddClick} weatherData={weatherData} currentUser={currentUser} isLoggedIn={isLoggedIn} handleSignUpClick={handleSignUpClick} handleLoginClick={handleLoginClick} />
 
                         <Routes>
                             <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
 
                             <Route path='/profile' element={
                                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                                <Profile handleLogOutClick={handleLogOutClick} onClose={closeActiveModal} handleEditProfileClick={handleEditProfileClick} handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
+                                    <Profile handleLogOutClick={handleLogOutClick} onClose={closeActiveModal} handleEditProfileClick={handleEditProfileClick} handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
                                 </ProtectedRoute>
                             }></Route>
 
@@ -203,10 +204,10 @@ function App() {
                     <Footer />
                     <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                     <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
-                    <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} onClose={closeActiveModal}/>
+                    <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} onClose={closeActiveModal} />
                     <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} onClose={closeActiveModal} />
                     <EditProfileModal activeModal={activeModal} isOpen={activeModal === "edit-profile"} handleEditProfile={handleEditProfile} onClose={closeActiveModal} />
-                    <LogOutModal setIsLoggedIn={setIsLoggedIn} activeModal={activeModal} isOpen={activeModal === "log-out"}  onClose={closeActiveModal}/>
+                    <LogOutModal setIsLoggedIn={setIsLoggedIn} activeModal={activeModal} isOpen={activeModal === "log-out"} onClose={closeActiveModal} />
                 </div>
             </CurrentUserContext.Provider>
         </CurrentTemperatureUnitContext.Provider>

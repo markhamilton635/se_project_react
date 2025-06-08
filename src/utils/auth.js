@@ -1,4 +1,4 @@
-import {baseUrl} from "./api.js";
+import { baseUrl } from "./api.js";
 
 export const signup = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {
@@ -12,7 +12,7 @@ export const signup = (name, avatar, email, password) => {
   });
 };
 
-export const signin = (email, password) => {
+export const signin = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
@@ -23,4 +23,3 @@ export const signin = (email, password) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };
-
