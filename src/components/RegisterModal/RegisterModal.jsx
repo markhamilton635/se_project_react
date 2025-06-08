@@ -22,7 +22,7 @@ function RegisterModal({ activeModal, onClose, isOpen, handleRegistration }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleRegistration(data)
-        
+
     };
 
 
@@ -32,16 +32,16 @@ function RegisterModal({ activeModal, onClose, isOpen, handleRegistration }) {
         <ModalWithForm title="Sign up" buttonText="Sign Up" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} >
 
             <label htmlFor="email" className="modal__label">Email*
-                <input type="email" className="modal__input" id="name" placeholder='Email' value={data.email} onChange={handleChange} />
+                <input type="email" name="email" className="modal__input" id="email" placeholder='Email' value={data.email} onChange={handleChange} />
             </label>
             <label htmlFor="password" className=" modal__label">Password*
-                <input type="password" className="modal__input" id="password" placeholder='Password' value={data.password} onChange={handleChange} />
+                <input type="password" name="password" className="modal__input" id="password" placeholder='Password' value={data.password} onChange={handleChange} />
             </label>
             <label htmlFor="name" className=" modal__label">Name *
-                <input type="name" className="modal__input" id="name" placeholder='Name' value={data.name} onChange={handleChange} />
+                <input type="name" name="name" className="modal__input" id="name" placeholder='Name' value={data.name} onChange={handleChange} />
             </label>
-            <label htmlFor="imageUrl" className=" modal__label">Avatar URL *
-                <input type="url" className="modal__input" id="imageUrl" placeholder='Avatar URL' value={data.avatar} onChange={handleChange} />
+            <label htmlFor="avatar" className=" modal__label">Avatar URL *
+                <input type="url" name="avatar" className="modal__input" id="avatar" placeholder='Avatar URL' value={data.avatar} onChange={handleChange} />
             </label>
             <button className="register_modal-button">or Log In</button>
 
