@@ -35,7 +35,7 @@ function App() {
     const [selectedCard, setSelectedCard] = useState({});
     const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
     const [clothingItems, setClothingItems] = useState([]);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState();
     const [currentUser, setCurrentUser] = useState({ name: "", avatar: "" })
 
     const navigate = useNavigate();
@@ -206,7 +206,7 @@ function App() {
                     <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} onClose={closeActiveModal}/>
                     <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} onClose={closeActiveModal} />
                     <EditProfileModal activeModal={activeModal} isOpen={activeModal === "edit-profile"} handleEditProfile={handleEditProfile} onClose={closeActiveModal} />
-                    <LogOutModal activeModal={activeModal} isOpen={activeModal === "log-out"}  onClose={closeActiveModal}/>
+                    <LogOutModal setIsLoggedIn={setIsLoggedIn} activeModal={activeModal} isOpen={activeModal === "log-out"}  onClose={closeActiveModal}/>
                 </div>
             </CurrentUserContext.Provider>
         </CurrentTemperatureUnitContext.Provider>

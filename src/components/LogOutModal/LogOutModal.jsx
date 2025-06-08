@@ -3,12 +3,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm"
 import { removeToken } from "../../utils/token"
 
 
-function LogOutModal({ activeModal, onClose, isOpen, }) {
+function LogOutModal({ activeModal, onClose, isOpen, setIsLoggedIn }) {
 
 
     const logOut = (e) => {
         e.preventDefault();
         removeToken();
+        setIsLoggedIn(false);
         onClose();
     }
 
