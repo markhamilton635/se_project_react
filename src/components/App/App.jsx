@@ -47,9 +47,9 @@ function App() {
             return;
         }
         getUserInfo(jwt)
-            .then(({ name, avatar }) => {
+            .then((userData) => {
                 setIsLoggedIn(true);
-                setCurrentUser({ name, avatar });
+                setCurrentUser(userData);
 
             })
             .catch(console.error);
@@ -62,9 +62,9 @@ function App() {
         if (!token) {
             return;
         }
-        console.log({name,avatar, token})
+        console.log({ name, avatar, token })
         editProfileInfo({ name, avatar, token }).then(() => {
-            console.log({name,avatar})
+            console.log({ name, avatar })
             setCurrentUser({ name, avatar });
         }).catch(console.error);
     }
@@ -75,7 +75,7 @@ function App() {
         name,
         avatar,
     }) => {
- 
+
         signup(name, avatar, email, password)
             .then(() => {
                 closeActiveModal();
@@ -99,8 +99,8 @@ function App() {
                 if (data.token) {
                     setToken(data.token)
                     setIsLoggedIn(true);
-                    getUserInfo(data.token).then(({ name, avatar }) => {
-                        setCurrentUser({ name, avatar })
+                    getUserInfo(data.token).then((userData) => {
+                        setCurrentUser(userData)
                     })
                     const redirectPath = location.state?.from?.pathname || "/profile";
                     navigate(redirectPath);

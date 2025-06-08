@@ -6,7 +6,7 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const [name, setName] = useState("");
     const [imageUrl, setImage] = useState("");
     const [weather, setWeather] = useState("")
-    useEffect(()=>{
+    useEffect(() => {
         setName("");
         setImage("");
         setWeather("");
@@ -20,11 +20,11 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
     const handleWeatherChange = (e) => { setWeather(e.target.value) }
     const handleItemSubmit = (e) => {
         e.preventDefault();
-        //udpating clothingItems array and closing modal in this funciton in app
+
         onAddItemModalSubmit({ name, imageUrl, weather });
-        //empty inputs 
-       
-      
+
+
+
 
     }
 

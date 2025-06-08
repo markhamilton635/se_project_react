@@ -11,7 +11,7 @@ function Header({ handleAddClick, weatherData, currentUser, isLoggedIn, handleSi
             {currentUser.name?.[0]?.toUpperCase() || "?"}
         </div>
     );
-
+ 
     return (
         <header className="header" >
             <Link to='/'>
