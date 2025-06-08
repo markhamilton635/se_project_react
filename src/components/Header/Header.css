@@ -60,3 +60,31 @@
   font-size: 1rem;
   text-transform: uppercase;
 }
+.header__log-in-btn {
+   background: none;
+  border: none;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  width: 67;
+  height: 24;
+  top: 8px;
+  left: 1221px;
+  margin-left: 20px;
+}
+.header__sign-up-btn {
+  background: none;
+  border: none;
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  width: 67;
+  height: 24;
+  top: 8px;
+  left: 1221px;
+  margin-left: 20px;
+}

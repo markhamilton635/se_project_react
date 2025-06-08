@@ -1,0 +1,24 @@
+.logout__message {
+  text-align: center;
+  
+  margin-bottom: 24px;
+  font-family: "CabinetGrotesk";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+.logout__cancel-btn {
+  position: absolute;
+  background: none;
+  bottom: 44px;
+  left: 158px;
+  border: none;
+
+  font-family: "CabinetGrotesk";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: red;
+}
