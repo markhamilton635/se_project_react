@@ -6,7 +6,7 @@ import CurrentUserContext from "../../../contexts/CurrentUserContext";
 
 function ItemCard({ item, onCardClick, isLoggedIn, onCardLike }) {
     const currentUser = useContext(CurrentUserContext)
-    console.log(item)
+
     const handleCardClick = () => {
         onCardClick(item)
     }
@@ -14,13 +14,14 @@ function ItemCard({ item, onCardClick, isLoggedIn, onCardLike }) {
     const itemLikeImage = isLiked ? darkLike : like;
     const itemLikeButtonClassName = isLoggedIn ? '' : 'card__like-hidden';
 
+
     return (
         <li className="card" >
             <div className='card__container'>
                 <h2 className="card__name" >{item.name}
 
                 </h2>
-                <img onClick={onCardLike} className={itemLikeButtonClassName} alt="like image" src={itemLikeImage} />
+                <img onClick={() => onCardLike(item, isLiked)} className={itemLikeButtonClassName} alt="like image" src={itemLikeImage} />
             </div>
 
             <img onClick={handleCardClick} className="card__image" src={item.imageUrl} alt={item.name} />

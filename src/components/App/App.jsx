@@ -114,13 +114,14 @@ function App() {
         setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
     }
 
-    const handleCardLike = ({ cardId, isLiked }) => {
+    const handleCardLike = ( card, isLiked ) => {
         const token = localStorage.getItem("jwt");
+        const id = card._id
 
-        toggleCardLike(cardId, isLiked, token)
+        toggleCardLike(id, isLiked, token)
             .then((updatedCard) => {
                 setClothingItems((cards) =>
-                    cards.map((item) => (item._id === cardId ? updatedCard : item))
+                    cards.map((item) => (item._id === id ? updatedCard : item))
                 );
             })
             .catch((err) => console.log(err))

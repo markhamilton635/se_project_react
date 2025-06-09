@@ -67,8 +67,8 @@ function editProfileInfo({ name, avatar, token }) {
   });
 }
 
-function toggleCardLike(cardId, isLiked, token) {
-  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+function toggleCardLike(id, isLiked, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: isLiked ? "DELETE" : "PUT",
     headers: {
       "Content-Type": "application/json",
