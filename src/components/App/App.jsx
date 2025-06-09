@@ -10,7 +10,7 @@ import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit
 import AddItemModal from '../AddItemModal/AddItemModal';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Profile from '../Profile/Profile';
-import { getItems, addItem, deleteItem, getUserInfo, editProfileInfo } from '../../utils/api';
+import { getItems, addItem, deleteItem, getUserInfo, editProfileInfo, toggleCardLike } from '../../utils/api';
 import LoginModal from '../LoginModal/LoginModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import ProtectedRoute from "../ProtectedRoute";
@@ -82,7 +82,7 @@ function App() {
 
             }).then(() => {
                 handleLogin({ email, password })
-                // navigate("/profile");
+
             }
             ).then(() => { navigate("/profile") })
             .catch(console.error);
@@ -113,6 +113,19 @@ function App() {
     const handleToggleSwitchChange = () => {
         setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
     }
+
+    const handleCardLike = ({ cardId, isLiked }) => {
+        const token = localStorage.getItem("jwt");
+
+        toggleCardLike(cardId, isLiked, token)
+            .then((updatedCard) => {
+                setClothingItems((cards) =>
+                    cards.map((item) => (item._id === cardId ? updatedCard : item))
+                );
+            })
+            .catch((err) => console.log(err))
+
+    };
 
 
     const handleCardClick = (card) => {
@@ -189,7 +202,7 @@ function App() {
                         <Header handleAddClick={handleAddClick} weatherData={weatherData} currentUser={currentUser} isLoggedIn={isLoggedIn} handleSignUpClick={handleSignUpClick} handleLoginClick={handleLoginClick} />
 
                         <Routes>
-                            <Route path='/' element={<Main handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
+                            <Route path='/' element={<Main onCardLike={handleCardLike} isLoggedIn={isLoggedIn} handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
 
                             <Route path='/profile' element={
                                 <ProtectedRoute isLoggedIn={isLoggedIn}>

@@ -50,7 +50,7 @@ function getUserInfo(token) {
   });
 }
 
-function editProfileInfo({name,avatar, token}) {
+function editProfileInfo({ name, avatar, token }) {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     body: JSON.stringify({
@@ -67,6 +67,25 @@ function editProfileInfo({name,avatar, token}) {
   });
 }
 
+function toggleCardLike(cardId, isLiked, token) {
+  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+    method: isLiked ? "DELETE" : "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+}
 
-
-export { getItems, addItem, deleteItem, handleResponse, baseUrl, getUserInfo, editProfileInfo };
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  handleResponse,
+  baseUrl,
+  getUserInfo,
+  editProfileInfo,
+  toggleCardLike,
+};

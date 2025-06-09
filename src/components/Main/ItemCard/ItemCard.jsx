@@ -1,12 +1,18 @@
 import './ItemCard.css'
 import darkLike from "../../../assets/darkLike.svg"
 import like from "../../../assets/like.svg"
-function ItemCard({ item, onCardClick }) {
+import { useContext } from "react";
+import CurrentUserContext from "../../../contexts/CurrentUserContext";
 
+function ItemCard({ item, onCardClick, isLoggedIn, onCardLike }) {
+    const currentUser = useContext(CurrentUserContext)
+    console.log(item)
     const handleCardClick = () => {
         onCardClick(item)
     }
-    console.log(darkLike);
+    const isLiked = item.likes.some(id => id === currentUser._id);
+    const itemLikeImage = isLiked ? darkLike : like;
+    const itemLikeButtonClassName = isLoggedIn ? '' : 'card__like-hidden';
 
     return (
         <li className="card" >
@@ -14,7 +20,7 @@ function ItemCard({ item, onCardClick }) {
                 <h2 className="card__name" >{item.name}
 
                 </h2>
-                <img className='card__like' alt="like image" src={like} />
+                <img onClick={onCardLike} className={itemLikeButtonClassName} alt="like image" src={itemLikeImage} />
             </div>
 
             <img onClick={handleCardClick} className="card__image" src={item.imageUrl} alt={item.name} />
