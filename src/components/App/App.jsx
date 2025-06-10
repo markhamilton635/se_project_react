@@ -31,6 +31,11 @@ function App() {
         condition: "",
         isDay: true,
     });
+
+
+    // VARIABLES
+
+
     const [activeModal, setActiveModal] = useState("");
     const [selectedCard, setSelectedCard] = useState({});
     const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -40,6 +45,14 @@ function App() {
 
     const navigate = useNavigate();
     const location = useLocation();
+
+    const handleToggleSwitchChange = () => {
+        setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
+    }
+
+
+    // HOOKS 
+
 
     useEffect(() => {
         const jwt = getToken();
@@ -56,6 +69,26 @@ function App() {
     }, []);
 
 
+    useEffect(() => {
+        getWeather(coordinates, APIkey)
+            .then((data) => {
+                const filteredData = filterWeatherData(data);
+                setWeatherData(filteredData)
+            })
+            .catch(console.error);
+    }, []);
+
+
+    useEffect(() => {
+        getItems().then((data) => {
+            setClothingItems(data)
+        }).catch(console.error)
+    }, []);
+
+
+    // APIs
+
+
     const handleEditProfile = ({ name, avatar }) => {
         const token = getToken();
         console.log(token)
@@ -68,6 +101,7 @@ function App() {
             setCurrentUser({ name, avatar });
         }).catch(console.error);
     }
+
 
     const handleRegistration = ({
         email,
@@ -89,10 +123,11 @@ function App() {
 
     };
 
+
     const handleLogin = ({ email, password }) => {
         if (!email || !password) {
 
-            // return //Promise.reject("Missing credentials");
+            return Promise.reject("Missing credentials");
         }
         return signin({ email, password })
             .then((data) => {
@@ -110,11 +145,7 @@ function App() {
     }
 
 
-    const handleToggleSwitchChange = () => {
-        setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
-    }
-
-    const handleCardLike = ( card, isLiked ) => {
+    const handleCardLike = (card, isLiked) => {
         const token = localStorage.getItem("jwt");
         const id = card._id
 
@@ -129,33 +160,6 @@ function App() {
     };
 
 
-    const handleCardClick = (card) => {
-        setActiveModal("preview");
-        setSelectedCard(card);
-
-    }
-    const handleLoginClick = () => {
-
-        setActiveModal("log-in")
-    }
-    const handleSignUpClick = () => {
-
-        setActiveModal("register")
-    }
-    const handleLogOutClick = () => {
-        setActiveModal("log-out")
-    }
-    const handleEditProfileClick = () => {
-        setActiveModal("edit-profile")
-    }
-
-    const handleAddClick = () => {
-        setActiveModal("add-garment")
-    }
-    const closeActiveModal = () => {
-        setActiveModal("");
-    }
-
     const handleAddItemModalSubmit = ({ name, imageUrl, weather, }) => {
         const jwt = getToken();
         if (!jwt) {
@@ -168,6 +172,7 @@ function App() {
             .catch(console.error);
     }
 
+
     const handleDeleteCard = (id,) => {
         const jwt = getToken();
         if (!jwt) {
@@ -179,20 +184,33 @@ function App() {
         }).catch(console.error);
     }
 
-    useEffect(() => {
-        getWeather(coordinates, APIkey)
-            .then((data) => {
-                const filteredData = filterWeatherData(data);
-                setWeatherData(filteredData)
-            })
-            .catch(console.error);
-    }, []);
+    // HANDLE MODAL OPENING
 
-    useEffect(() => {
-        getItems().then((data) => {
-            setClothingItems(data)
-        }).catch(console.error)
-    }, []);
+    const handleCardClick = (card) => {
+        setActiveModal("preview");
+        setSelectedCard(card);
+    }
+    const handleLoginClick = () => {
+        setActiveModal("log-in")
+    }
+    const handleSignUpClick = () => {
+        setActiveModal("register")
+    }
+    const handleLogOutClick = () => {
+        setActiveModal("log-out")
+    }
+    const handleEditProfileClick = () => {
+        setActiveModal("edit-profile")
+    }
+    const handleAddClick = () => {
+        setActiveModal("add-garment")
+    }
+    const closeActiveModal = () => {
+        setActiveModal("");
+    }
+
+
+
 
 
     return (

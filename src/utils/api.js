@@ -45,9 +45,7 @@ function getUserInfo(token) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(handleResponse);
 }
 
 function editProfileInfo({ name, avatar, token }) {
@@ -62,9 +60,7 @@ function editProfileInfo({ name, avatar, token }) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(handleResponse);
 }
 
 function toggleCardLike(id, isLiked, token) {
@@ -74,9 +70,7 @@ function toggleCardLike(id, isLiked, token) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(handleResponse);
 }
 
 export {
