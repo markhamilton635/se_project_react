@@ -221,8 +221,8 @@ function App() {
                     <Footer />
                     <AddItemModal activeModal={activeModal} isOpen={activeModal === "add-garment"} onClose={closeActiveModal} onAddItemModalSubmit={handleAddItemModalSubmit} />
                     <ItemModal onDeleteCard={handleDeleteCard} activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
-                    <LoginModal activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} onClose={closeActiveModal} />
-                    <RegisterModal activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} onClose={closeActiveModal} />
+                    <LoginModal handleSignUpClick={handleSignUpClick} activeModal={activeModal} isOpen={activeModal === "log-in"} handleLogin={handleLogin} onClose={closeActiveModal} />
+                    <RegisterModal handleLoginClick={handleLoginClick} activeModal={activeModal} isOpen={activeModal === "register"} handleRegistration={handleRegistration} onClose={closeActiveModal} />
                     <EditProfileModal activeModal={activeModal} isOpen={activeModal === "edit-profile"} handleEditProfile={handleEditProfile} onClose={closeActiveModal} />
                     <LogOutModal setIsLoggedIn={setIsLoggedIn} activeModal={activeModal} isOpen={activeModal === "log-out"} onClose={closeActiveModal} />
                 </div>

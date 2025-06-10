@@ -11,6 +11,8 @@ function ItemCard({ item, onCardClick, isLoggedIn, onCardLike }) {
         onCardClick(item)
     }
     const isLiked = item.likes.some(id => id === currentUser._id);
+   
+
     const itemLikeImage = isLiked ? darkLike : like;
     const itemLikeButtonClassName = isLoggedIn ? '' : 'card__like-hidden';
 

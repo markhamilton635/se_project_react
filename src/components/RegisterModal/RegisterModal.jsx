@@ -2,7 +2,7 @@ import "./RegisterModal.css"
 import ModalWithForm from "../ModalWithForm/ModalWithForm"
 import { useState } from "react";
 
-function RegisterModal({ activeModal, onClose, isOpen, handleRegistration }) {
+function RegisterModal({ activeModal, onClose, isOpen, handleRegistration, handleLoginClick }) {
 
     const [data, setData] = useState({
         email: "",
@@ -43,7 +43,7 @@ function RegisterModal({ activeModal, onClose, isOpen, handleRegistration }) {
             <label htmlFor="avatar" className=" modal__label">Avatar URL *
                 <input type="url" name="avatar" className="modal__input" id="avatar" placeholder='Avatar URL' value={data.avatar} onChange={handleChange} />
             </label>
-            <button className="register_modal-button">or Log In</button>
+            <button onClick={handleLoginClick} className="register_modal-button">or Log In</button>
 
         </ModalWithForm>
     )

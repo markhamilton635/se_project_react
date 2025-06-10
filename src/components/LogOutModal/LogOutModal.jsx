@@ -16,7 +16,7 @@ function LogOutModal({ activeModal, onClose, isOpen, setIsLoggedIn }) {
 
 
     return (
-        <ModalWithForm title="LogOut" buttonText="LogOut" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={logOut} >
+        <ModalWithForm customButtonClass={"logout-form__submit-btn"} customContentClass={"logout-form__content"} title="LogOut" buttonText="LogOut" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={logOut} >
             <p className="logout__message">Are you sure you want to log out?</p>
             <button onClick={onClose} className="logout__cancel-btn">Cancel</button>
 

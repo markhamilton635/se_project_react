@@ -1,6 +1,6 @@
 .logout__message {
   text-align: center;
-  
+
   margin-bottom: 24px;
   font-family: "CabinetGrotesk";
   font-weight: 500;
@@ -12,7 +12,7 @@
   position: absolute;
   background: none;
   bottom: 44px;
-  left: 158px;
+  left: 146px;
   border: none;
 
   font-family: "CabinetGrotesk";
@@ -20,5 +20,27 @@
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: red;
+  border-radius: 4px;
+  max-width: 200px;
+  width: 100%;
+}
+
+.logout-form__content {
+  height: 280px;
+}
+.logout-form__submit-btn {
+  position: absolute;
+  max-width: 400px;
+  bottom: 100px;
+  left: 46px;
+  background-color: red;
+  opacity: 50%;
+}
+.logout-form__submit-btn:hover {
+  opacity: 100%;
+  background-color: red;
+}
+
+.logout__cancel-btn:hover {
+  opacity: 90%;
 }
