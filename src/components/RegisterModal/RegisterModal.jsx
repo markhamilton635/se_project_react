@@ -43,7 +43,7 @@ function RegisterModal({ activeModal, onClose, isOpen, handleRegistration, handl
             <label htmlFor="avatar" className=" modal__label">Avatar URL *
                 <input type="url" name="avatar" className="modal__input" id="avatar" placeholder='Avatar URL' value={data.avatar} onChange={handleChange} />
             </label>
-            <button onClick={handleLoginClick} className="register_modal-button">or Log In</button>
+            <button type="button" onClick={handleLoginClick} className="register_modal-button">or Log In</button>
 
         </ModalWithForm>
     )

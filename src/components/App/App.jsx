@@ -85,20 +85,37 @@ function App() {
         }).catch(console.error)
     }, []);
 
+    useEffect(() => {
+
+        if (!activeModal) return;
+
+        const handleEscClose = (e) => {
+            if (e.key === "Escape") {
+                closeActiveModal();
+            }
+        };
+
+        document.addEventListener("keydown", handleEscClose);
+
+        return () => {
+            document.removeEventListener("keydown", handleEscClose);
+        };
+    }, [activeModal]);
+
 
     // APIs
 
 
     const handleEditProfile = ({ name, avatar }) => {
         const token = getToken();
-        console.log(token)
+
         if (!token) {
             return;
         }
-        console.log({ name, avatar, token })
-        editProfileInfo({ name, avatar, token }).then(() => {
-            console.log({ name, avatar })
-            setCurrentUser({ name, avatar });
+
+        editProfileInfo({ name, avatar, token }).then((res) => {
+            setCurrentUser(res.data);
+            closeActiveModal();
         }).catch(console.error);
     }
 
@@ -140,6 +157,7 @@ function App() {
                     const redirectPath = location.state?.from?.pathname || "/profile";
                     navigate(redirectPath);
                 }
+                closeActiveModal();
             })
             .catch(console.error);
     }
@@ -166,7 +184,7 @@ function App() {
             return;
         }
         addItem(name, imageUrl, weather, jwt).then((newItem) => {
-            setClothingItems((prevItems) => [...prevItems, newItem]);
+            setClothingItems((prevItems) => [newItem, ...prevItems]);
             closeActiveModal();
         })
             .catch(console.error);
@@ -213,19 +231,20 @@ function App() {
 
 
 
+
     return (
         <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
             <CurrentUserContext.Provider value={currentUser}>
                 <div className="page">
                     <div className="page__content">
-                        <Header handleAddClick={handleAddClick} weatherData={weatherData} currentUser={currentUser} isLoggedIn={isLoggedIn} handleSignUpClick={handleSignUpClick} handleLoginClick={handleLoginClick} />
+                        <Header handleAddClick={handleAddClick} weatherData={weatherData} isLoggedIn={isLoggedIn} handleSignUpClick={handleSignUpClick} handleLoginClick={handleLoginClick} />
 
                         <Routes>
                             <Route path='/' element={<Main onCardLike={handleCardLike} isLoggedIn={isLoggedIn} handleDeleteCard={handleDeleteCard} weatherData={weatherData} handleCardClick={handleCardClick} clothingItems={clothingItems} />}></Route>
 
                             <Route path='/profile' element={
                                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                                    <Profile handleLogOutClick={handleLogOutClick} onClose={closeActiveModal} handleEditProfileClick={handleEditProfileClick} handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
+                                    <Profile isLoggedIn={isLoggedIn} handleLogOutClick={handleLogOutClick} onClose={closeActiveModal} handleEditProfileClick={handleEditProfileClick} handleAddClick={handleAddClick} handleDeleteCard={handleDeleteCard} handleCardClick={handleCardClick} clothingItems={clothingItems} />
                                 </ProtectedRoute>
                             }></Route>
 

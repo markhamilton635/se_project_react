@@ -34,13 +34,11 @@ function EditProfileModal({ activeModal, onClose, isOpen, handleEditProfile, }) 
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data)
     handleEditProfile(data);
-    onClose();
   }
 
   return (
-    <ModalWithForm customContentClass={"edit-profile__modal-content"} customButtonClass="edit-profile__modal-submit-btn" title="Change profile data" buttonText="Save changes"  activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} >
+    <ModalWithForm customContentClass={"edit-profile__modal-content"} customButtonClass="edit-profile__modal-submit-btn" title="Change profile data" buttonText="Save changes" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} >
       <label htmlFor="name" className="modal__label">Name*
         <input type="text" className="modal__input" id="name" name="name" placeholder='Name' value={data.name} onChange={handleChange} />
       </label>

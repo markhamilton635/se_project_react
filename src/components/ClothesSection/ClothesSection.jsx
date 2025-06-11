@@ -2,7 +2,7 @@ import './ClothesSection.css'
 import ItemCard from '../Main/ItemCard/ItemCard'
 
 
-function ClothesSection({ handleAddClick, handleCardClick, clothingItems }) {
+function ClothesSection({ isLoggedIn, handleAddClick, handleCardClick, clothingItems }) {
 
 
     return (
@@ -16,7 +16,7 @@ function ClothesSection({ handleAddClick, handleCardClick, clothingItems }) {
                 <ul className="cards__list">
                     {clothingItems.map((item) => {
                         return (
-                            <ItemCard key={item._id} item={item} onCardClick={handleCardClick} />
+                            <ItemCard isLoggedIn={isLoggedIn} key={item._id} item={item} onCardClick={handleCardClick} />
                         )
                     })}
                 </ul>

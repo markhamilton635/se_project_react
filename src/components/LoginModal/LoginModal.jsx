@@ -19,7 +19,7 @@ function LoginModal({ activeModal, onClose, isOpen, handleLogin, handleSignUpCli
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(data);
-    onClose();
+
   };
 
   return (

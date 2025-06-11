@@ -41,8 +41,10 @@
   border-radius: 20px;
   width: 100%;
   border: 1px solid #0000004d;
+  width: 325px;
+  height: 328px;
 }
 
-.card__like-hidden{
-    display: none;
+.card__like-hidden {
+  display: none;
 }
