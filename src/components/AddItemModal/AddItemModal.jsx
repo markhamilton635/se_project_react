@@ -31,8 +31,8 @@ function AddItemModal({ activeModal, onClose, isOpen, onAddItemModalSubmit }) {
 
     return (
         <ModalWithForm title="New garmet" buttonText="Add garmet" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleItemSubmit}>
-            <label htmlFor="name" className="modal__label">Name
-                <input type="text" className="modal__input" id="name" placeholder='Name' onChange={handleNameChange} value={name} />
+            <label htmlFor="add-name" className="modal__label">Name
+                <input type="text" className="modal__input" id="add-name" placeholder='Name' onChange={handleNameChange} value={name} />
             </label>
             <label htmlFor="imageUrl" className="modal__label">Image
                 <input type="url" className="modal__input" id="imageUrl" placeholder='Image URL' onChange={handleImageChange} value={imageUrl} />

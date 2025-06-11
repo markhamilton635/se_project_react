@@ -25,11 +25,11 @@ function LoginModal({ activeModal, onClose, isOpen, handleLogin, handleSignUpCli
   return (
     <ModalWithForm customButtonClass={"login__modal-submit-btn"} customContentClass={"login__modal-content"} title="Log in" buttonText="Log in" activeModal={activeModal} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} >
 
-      <label htmlFor="email" className="modal__label">Email
-        <input type="email" className="modal__input" id="email" name="email" placeholder='Email' value={data.email} onChange={handleChange} />
+      <label htmlFor="login-email" className="modal__label">Email
+        <input autoComplete="current-email" type="email" className="modal__input" id="login-email" name="email" placeholder='Email' value={data.email} onChange={handleChange} />
       </label>
-      <label htmlFor="password" className=" modal__label">Password
-        <input type="password" className="modal__input" id="password" name="password" placeholder='Password' value={data.password} onChange={handleChange} />
+      <label htmlFor="login-password" className=" modal__label">Password
+        <input autoComplete="current-password" type="password" className="modal__input" id="login-password" name="password" placeholder='Password' value={data.password} onChange={handleChange} />
       </label>
       <button onClick={handleSignUpClick} type="button" className="login_modal-button">or Sign up</button>
 
